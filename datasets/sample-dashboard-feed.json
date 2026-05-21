@@ -1,0 +1,146 @@
+{
+  "matchId": "ipl-2026-final-sim",
+  "status": "live",
+  "updatedAt": "2026-05-21T14:40:00.000Z",
+  "liveMatch": {
+    "title": "Mumbai Mavericks vs Chennai Royals",
+    "venue": "Wankhede Stadium, Mumbai",
+    "phase": "Death Overs",
+    "currentRate": 9.42,
+    "requiredRate": 11.2,
+    "battingTeam": {
+      "name": "Mumbai Mavericks",
+      "shortName": "MM",
+      "score": "168/4",
+      "overs": "17.5",
+      "probability": 64,
+      "color": "#00e5ff"
+    },
+    "bowlingTeam": {
+      "name": "Chennai Royals",
+      "shortName": "CR",
+      "score": "187/6",
+      "overs": "20.0",
+      "probability": 36,
+      "color": "#ffd166"
+    }
+  },
+  "metrics": [
+    {
+      "label": "Win probability",
+      "value": "64%",
+      "subValue": "Mumbai Surge",
+      "change": "+7.8 last 12 balls",
+      "tone": "cyan",
+      "iconKey": "target",
+      "progress": 64
+    },
+    {
+      "label": "Momentum index",
+      "value": "82",
+      "subValue": "High pressure swing",
+      "change": "+18 since over 14",
+      "tone": "lime",
+      "iconKey": "zap",
+      "progress": 82
+    },
+    {
+      "label": "AI confidence",
+      "value": "91%",
+      "subValue": "7 models aligned",
+      "change": "Stable signal",
+      "tone": "violet",
+      "iconKey": "brain",
+      "progress": 91
+    },
+    {
+      "label": "Boundary pressure",
+      "value": "2.4x",
+      "subValue": "Death overs threat",
+      "change": "Field spread exposed",
+      "tone": "gold",
+      "iconKey": "sparkles",
+      "progress": 76
+    }
+  ],
+  "insights": [
+    {
+      "id": "insight-1",
+      "type": "prediction",
+      "title": "Yorker miss pattern detected",
+      "content": "Chennai's primary death bowler has missed the blockhole on 5 of the last 8 attempts. Mumbai should keep left-right rotation active.",
+      "confidence": 91,
+      "generatedAt": "20:08 IST",
+      "language": "en",
+      "matchId": "ipl-2026-final-sim"
+    },
+    {
+      "id": "insight-2",
+      "type": "momentum",
+      "title": "Momentum spike after over 16",
+      "content": "Two boundaries against the long square boundary flipped the pressure model. Required rate is high, but matchup quality favors batting.",
+      "confidence": 87,
+      "generatedAt": "20:06 IST",
+      "language": "en",
+      "matchId": "ipl-2026-final-sim"
+    },
+    {
+      "id": "insight-3",
+      "type": "what_if",
+      "title": "What-if path",
+      "content": "One wicket before 18.3 drops Mumbai to 41 percent. A 12-run over without wicket lifts them to 72 percent.",
+      "confidence": 84,
+      "generatedAt": "20:05 IST",
+      "language": "en",
+      "matchId": "ipl-2026-final-sim"
+    }
+  ],
+  "momentum": [
+    { "over": 10, "home": 46, "away": 54 },
+    { "over": 11, "home": 44, "away": 56 },
+    { "over": 12, "home": 48, "away": 52 },
+    { "over": 13, "home": 51, "away": 49 },
+    { "over": 14, "home": 50, "away": 50 },
+    { "over": 15, "home": 57, "away": 43 },
+    { "over": 16, "home": 61, "away": 39 },
+    { "over": 17, "home": 68, "away": 32 },
+    { "over": 18, "home": 64, "away": 36 }
+  ],
+  "playerSignals": [
+    {
+      "name": "Aarav Mehta",
+      "role": "Finisher",
+      "signal": "Attacks slower-ball length at 182 SR",
+      "impact": 88,
+      "trend": "+24 matchup edge"
+    },
+    {
+      "name": "R. Iyer",
+      "role": "Death bowler",
+      "signal": "Yorker accuracy falling under dew",
+      "impact": 71,
+      "trend": "-13 control"
+    },
+    {
+      "name": "Kabir Sethi",
+      "role": "Anchor",
+      "signal": "Strike rotation unlocks long-on gap",
+      "impact": 79,
+      "trend": "+9 tempo"
+    }
+  ],
+  "whatIfScenarios": [
+    {
+      "title": "If Mumbai score 14 in over 18",
+      "trigger": "No wicket, one six",
+      "outcome": "Win probability rises to 72 percent",
+      "probabilityShift": "+8"
+    },
+    {
+      "title": "If Chennai force a dot-ball cluster",
+      "trigger": "3 dots before 19.0",
+      "outcome": "Required rate jumps above 14",
+      "probabilityShift": "-11"
+    }
+  ]
+}

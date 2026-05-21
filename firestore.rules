@@ -1,0 +1,91 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn() && request.auth.token.admin == true;
+    }
+
+    function hasOnlyAllowedKeys(keys) {
+      return request.resource.data.keys().hasOnly(keys);
+    }
+
+    match /fanProfiles/{uid} {
+      allow read: if isOwner(uid) || isAdmin();
+      allow create, update: if isOwner(uid)
+        && request.resource.data.uid == uid
+        && hasOnlyAllowedKeys([
+          'uid',
+          'email',
+          'displayName',
+          'photoURL',
+          'favoriteTeamId',
+          'fanMode',
+          'lastSeenAt',
+          'createdAt',
+          'updatedAt'
+        ]);
+      allow delete: if isOwner(uid) || isAdmin();
+    }
+
+    match /liveMatches/{matchId} {
+      allow read: if true;
+      allow write: if isAdmin();
+
+      match /commentary/{eventId} {
+        allow read: if true;
+        allow write: if isAdmin();
+      }
+    }
+
+    match /dashboardFeeds/{matchId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /matchInsights/{insightId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.matchId is string
+        && request.resource.data.createdBy == request.auth.uid
+        && hasOnlyAllowedKeys([
+          'matchId',
+          'type',
+          'title',
+          'content',
+          'confidence',
+          'language',
+          'createdBy',
+          'createdAt',
+          'updatedAt'
+        ]);
+      allow update, delete: if isAdmin();
+    }
+
+    match /matchTelemetry/{eventId} {
+      allow create: if signedIn()
+        && request.resource.data.matchId is string
+        && hasOnlyAllowedKeys([
+          'matchId',
+          'eventType',
+          'payload',
+          'capturedAt',
+          'createdAt',
+          'updatedAt'
+        ]);
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
