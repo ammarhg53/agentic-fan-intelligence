@@ -34,7 +34,7 @@ agentic-fan-intelligence/
 
 ```bash
 cd agentic-fan-intelligence/frontend
-npm install
+npm ci
 npm run dev
 ```
 
@@ -59,7 +59,7 @@ The browser talks to `/api/ai/insights`; the Gemini key is never shipped to clie
 
 ## Deployment
 
-Deploy to Vercel from the `agentic-fan-intelligence` directory. The root `vercel.json` delegates install, dev, and build commands to `frontend`.
+Deploy to Vercel with Root Directory set to `frontend` for the simplest setup. The repository also includes a root deploy shim so Vercel can detect Next.js if Root Directory is left at the repository root.
 
 Deploy Firestore rules and indexes with Firebase CLI from the repository root:
 
